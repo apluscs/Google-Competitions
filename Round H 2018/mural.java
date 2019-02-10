@@ -17,11 +17,9 @@ public class mural {
       for (int t = 1; t <= T; t++) {
         N = Integer.parseInt(in.readLine());
         String s = in.readLine();
-        // System.out.println(s.length());
         nums = new int[5000000];
         for (int i = 0; i < N; i++)
           nums[i] = s.charAt(i) - '0';
-        // System.out.println(Arrays.toString(nums));
         int result = solve();
         out.println("Case #" + t + ": " + result);
       }
@@ -37,12 +35,10 @@ public class mural {
       sum += nums[i];
     int result = sum;
     for (int i = 1; i + len <= N; i++) {
-      // System.out.println(sum);
       sum -= nums[i - 1]; // sliding window, subtracting the front and adding the next
       sum += nums[i + len - 1];
       result = Math.max(sum, result);
     }
-    // System.out.println(sum);
     return result;
   }
 }
