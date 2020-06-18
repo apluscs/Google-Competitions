@@ -21,8 +21,8 @@ vector<vector<int>> plates;
 class Solution {
  public:
   int solve() {
+   // printing out plates here has some wrong numbers...
     vector<vector<int>> dp(n + 1, vector<int>(p + 1, INT_MIN));
-    // printing out plates here has some wrong numbers...
     
     dp[0][0] = 0;
     for (int i = 1; i != n + 1; ++i) {    // this many stacks
@@ -51,8 +51,10 @@ int main() {
     for (int i = 1; i != 1 + n; ++i) {
       for (int j = 1; j != 1 + k; ++j) {
         cin >> plates[i][j];
+       // printing out plates here is as expected
       }
     }
+   // still as expected
     cout << "Case #" << t << ": " << test.solve() << endl;
   }
 }
