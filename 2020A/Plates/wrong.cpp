@@ -20,7 +20,7 @@ vector<vector<int>> plates;
 
 class Solution {
  public:
-  int solve(vector<vector<int>>& plates) {
+  int solve() {
     vector<vector<int>> dp(n + 1, vector<int>(p + 1, INT_MIN));
     // printing out plates here has some wrong numbers...
     
@@ -53,6 +53,6 @@ int main() {
         cin >> plates[i][j];
       }
     }
-    cout << "Case #" << t << ": " << test.solve(plates) << endl;
+    cout << "Case #" << t << ": " << test.solve() << endl;
   }
 }
