@@ -18,8 +18,40 @@ using namespace std;
 int n, k;
 
 class Solution {
+  struct Node {
+    vector<Node*> kids = vector<Node*>(26);
+    int count = 0;
+  };
+  Node* root = new Node();
+  int res = 0;
+
+  void insert(string s) {
+    Node* curr = root;
+    int m = s.length();
+    for (int i = 0; i != m; ++i) {
+      int c = s[i] - 'A';
+      if (!curr->kids[c]) {
+        curr->kids[c] = new Node();
+      }
+      curr = curr->kids[c];
+      curr->count++;
+    }
+  }
+  void dfs(Node* curr) {
+    if (!curr) return;
+    res += curr->count / k;
+    for (auto kid : curr->kids) dfs(kid);
+    delete curr;
+  }
+
  public:
-  int solve(vector<string>& ss) { return 0; }
+  int solve(vector<string>& ss) {
+    for (auto s : ss) {
+      insert(s);
+    }
+    dfs(root);
+    return res;
+  }
 };
 
 int main() {
