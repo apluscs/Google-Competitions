@@ -15,15 +15,16 @@ j cells right to get to it (total m moves) is mCi / 2^m = m!/(i! * (m-i)! *
 - 2^log2(x) = x, and this helps with maintaining these large factorials.
 
 
+![](0.png)
+
 ### All said and done, right? No, because if you have an edge cell B, you are undercounting the number of ways you can get to that cell in m moves. The method described above, which can be used perfectly for most other cells, fails to account for the special rules: 
 
 - once on the rightmost column, you can only move down 
 - once on the bottommost row, you can only move right 
 
-### There are 16 possible places you can end up in if you take 4 random moves. In 5 of them, you end up off the board even though you are not supposed to, based onthe two special rules listed above. These are:
+### There are 16 possible places you can end up in if you take 4 random moves. In 5 of them, you end up off the board even though you are not supposed to, based on the two special rules listed above. These are:
 
-![](0.png)
-
+![](1.png) ![](2.png) ![](3.png)
 
 We must add back the probabilities of all these cases. How to do this? For any
 cell above B, if the robot visited it on its path, there is an 100% chance
