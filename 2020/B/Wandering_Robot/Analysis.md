@@ -6,7 +6,7 @@
 right corners of the hole because the robot must pass through exactly one of
 these special cells if it wants to make it to the exit. 
 
-- In m moves, there are 2^m different possible states (special case is addressed later).
+- There is probability 0.5^m of a path consisting of m moves happening. (Reprented as 1/2^m later).
 
 - The probability of reaching a cell in which you need to move i cells down and
 j cells right to get to it (total m moves) is mCi / 2^m = m!/(i! * (m-i)! *
