@@ -1,6 +1,6 @@
 # Analysis
 
-## Most people get the gist of it: 
+### Most people get the gist of it: 
 
 - It's easier to use the diagonals stemming off from the lower left and upper
 right corners of the hole because the robot must pass through exactly one of
@@ -41,4 +41,5 @@ that it will reach B. For any of these, it can either go right or down:
 
 So for C, D, and so on upwards, there is 100% chance you will reach B. But we
 already accounted for 50% of the cases. We just need to account for the other
-50% now. More technically, 
+50% now. More technically, for each cell above B, we need to account for all
+cases in which the robot moved right when it actually couldn't.
