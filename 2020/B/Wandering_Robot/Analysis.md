@@ -22,7 +22,7 @@ j cells right to get to it (total m moves) is mCi / 2^m = m!/(i! * (m-i)! *
 
 ### There are 16 possible places you can end up in if you take 4 random moves. In 5 of them, you end up off the board even though you are not supposed to, based onthe two special rules listed above. These are:
 
-![][0.png]
+![](0.png)
 
 
 We must add back the probabilities of all these cases. How to do this? For any
