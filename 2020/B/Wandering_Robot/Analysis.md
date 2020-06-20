@@ -29,6 +29,7 @@ j cells right to get to it (total m moves) is mCi / 2^m = m!/(i! * (m-i)! *
 ![](3.png)
 
 ![](4.png)
+
 ![](5.png)
 
 We must add back the probabilities of all these cases. How to do this? For any
