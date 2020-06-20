@@ -43,3 +43,5 @@ So for C, D, and so on upwards, there is 100% chance you will reach B. But we
 already accounted for 50% of the cases. We just need to account for the other
 50% now. More technically, for each cell above B, we need to account for all
 cases in which the robot moved right when it actually couldn't.
+
+Same thing applies to the region under and left of the hole. If it hits the bottom row, it can only go right.
