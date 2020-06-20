@@ -27,6 +27,7 @@ j cells right to get to it (total m moves) is mCi / 2^m = m!/(i! * (m-i)! *
 ![](1.png)  
 ![](2.png)    
 ![](3.png)
+
 ![](4.png)
 ![](5.png)
 
