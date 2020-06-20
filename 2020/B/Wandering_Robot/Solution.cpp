@@ -22,19 +22,25 @@ struct Solution {
   double solve() {
     precompute_logs();
     double res = 0;
-    for (int i = D + 1, j = L - 1; i <= H && j >= 1; ++i, --j) {
-      res += prob(i, j);
-    }
-    for (int i = U - 1, j = R + 1; i >= 1 && j <= W; --i, ++j) {
-      res += prob(i, j);
-    }
+    if (D < H)
+      for (int i = D + 1, j = L - 1; j >= 1;
+           ++i, --j) {  // wait for j to hit LHS, cap i if too large
+        res += prob(min(i, H), j, i > H);
+      }
+    if (R < W)  // need to be able to reach the corner of the diag before adjust
+                // for special cases
+      for (int i = U - 1, j = R + 1; i >= 1;
+           --i, ++j) {  // wait for i to hit ceiling, cap j if too large
+        res += prob(i, min(j, W), j > W);
+      }
     return res;
   }
-  double prob(int i, int j) {
+  double prob(int i, int j, bool sp) {
+    // cout << i << "," << j << endl;
     int m = i + j - 2;  // #moves to get to i,j
     double x = logs[m] - logs[i - 1] - logs[m - i + 1] - m;
     // cout << i << "," << j << " ==> " << pow(2, x) << endl;
-    return pow(2, x);
+    return pow(2, x) / (sp ? 2 : 1);
   }
 
   void precompute_logs() {
@@ -53,6 +59,7 @@ int main() {
     cin >> W >> H >> L >> U >> R >> D;
     Solution test;
     // test.solve();
+    // cout << endl;
     cout << "Case #" << t << ": " << test.solve() << endl;
   }
 }
