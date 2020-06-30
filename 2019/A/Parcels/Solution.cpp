@@ -54,9 +54,8 @@ class Solution {
 
     for (int i = 0; i != R; ++i) {
       for (int j = 0; j != C; ++j) {  // does this cell fall into the 4 bounds?
-        int A = i + j, M = i - j;
-        if (max(max(abs(maxA - A), abs(minA - A)),
-                max(abs(maxD - M), abs(minD - M))) <= k)
+        int A = i + j, D = i - j;
+        if (A - minA <= k && maxA - A <= k && D - minD <= k && maxD - D <= k)
           return true;
       }
     }
