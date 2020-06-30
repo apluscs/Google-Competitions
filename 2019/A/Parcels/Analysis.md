@@ -18,10 +18,13 @@ See the progression of the 4 lines as we iterate through the red points (points 
 
 Bright red = active
 
-![](1.png)
-![](2.png)
-![](3.png)
-![](4.png)
+1. ![](1.png)
+
+2. ![](2.png)
+
+3. ![](3.png)
+
+4. ![](4.png)
 
 Finally, we go through every cell and judge its Manhattan distance from each of the four lines. If all of these distances are <= k, then adding a delivery center to this supports all cells.
 
