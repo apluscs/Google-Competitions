@@ -31,4 +31,4 @@ Getting the maximum between i and j is also easier. You just look at the first h
 1      2  3      5
 &#124;----------------&#124;\
 &#124;-half 1--&#124;\
-       &#124;-half 2--&#124;\
+       &#124;-half 2--&#124;
