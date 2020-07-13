@@ -5,7 +5,7 @@ O(N^3): first BFS O(N^2), then try each cell as the one to add and see if the di
 O(N^2*log(N)): Binary search for the overall delivery time K, but must test in O(N^2) time. Do this by looking at all cells that go over K and noting that the final answer, if any, needs to include that.
 
 ## Strategy
-Observation 1: At a certain point, all points with a Manhattan distance K away from it form a square tiled 45 degress (shown below).
+Observation 1: At a certain point, all points with a Manhattan distance K away from it form a square tiled 45 degress (K = 2 shown below).
 
 ![](Basic.png)
 
