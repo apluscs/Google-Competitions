@@ -29,6 +29,6 @@ Building it is easy, where the first column is jus the given array, and for each
 Getting the maximum between i and j is also easier. You just look at the first half and the second half and get the max of two maximums. If it's not a perfect power of 2, the two "halves" will overlaps.
 
 1      2  3      5
-&#124;----------------&#124;
-&#124;-half 1--&#124;
-       &#124;-half 2--&#124;
+&#124;----------------&#124;\
+&#124;-half 1--&#124;\
+       &#124;-half 2--&#124;\
