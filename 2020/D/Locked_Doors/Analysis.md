@@ -28,7 +28,9 @@ Basically, it's N * log2(N), so ST[i][j] = out of the 2^j values beyond and incl
 Building it is easy, where the first column is jus the given array, and for each later column, you just look at the two halves, whose maximums are in the previous column.
 Getting the maximum between i and j is also easier. You just look at the first half and the second half and get the max of two maximums. If it's not a perfect power of 2, the two "halves" will overlaps.
 
+```
 1      2  3      5
-| ----------------|
-| -half 1--|
-       | -half 2--| 
+|----------------|
+|-half 1--|
+       |-half 2--|
+```
