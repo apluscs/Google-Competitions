@@ -27,25 +27,34 @@ typedef pair<int, int> pii;
   for (auto asdf = x.begin(); asdf != x.end(); asdf++) cout << *asdf << ' '; \
   cout << endl;
 
-const int inf = 1e8, MAXN = 101;
+const int mod = 1e9 + 7, MAXN = 101;
 
-int n, m, dist[MAXN][MAXN];
+int n, m;
+string adj[MAXN];
 struct Solution {
   vector<string> temp;
   int solve(int s, int t) {
-    if (dist[s][t] == inf) return -1;
-    int res = 0, d = dist[s][t] + 1;
-    while (d > 2) d -= d / 3, res++;
-    return res;
+    temp.resize(m + n);
+    REP(i, m + n)
+    temp[i] = adj[i];
+    int res = dfs(s, t);
+    return res == mod ? -1 : res;
   }
-  void init() {
+  int dfs(int s, int t) {
+    if (temp[s][t] == 'Y') return 0;
+    int res = mod;
     REP(i, m) {
       REP(j, m + n) {
+        if (i == j) continue;
         REP(k, m + n) {
-          dist[j][k] = min(dist[j][k], dist[i][j] + dist[i][k]);
+          if (j == k || i == k || temp[i][k] == 'N' || temp[i][j] == 'N' || temp[j][k] == 'Y') continue;
+          temp[j][k] = temp[k][j] = 'Y';
+          res = min(res, dfs(s, t) + 1);
+          temp[j][k] = temp[k][j] = 'N';
         }
       }
     }
+    return res;
   }
 };
 
@@ -59,14 +68,8 @@ int main() {
   REPN(t, T) {
     cin >> m >> n >> P;
     REP(i, m + n)
-    fill_n(dist[i], m + n, inf);
-    REP(i, m + n) {
-      cin >> s;
-      REP(j, m + n)
-      if (s[j] == 'Y') dist[i][j] = 1;
-    }
+    cin >> adj[i];
     printf("Case #%d: ", t);
-    test.init();
     REP(i, P) {
       cin >> x >> y, x--, y--;
       printf("%d ", test.solve(x, y));
@@ -74,16 +77,3 @@ int main() {
     printf("\n");
   }
 }
-
-
-/*
-Why tf does this work?
-Only managers can create new distances, so that's what the Floyd Warshall represents
-Every 3 nodes in the shortest path from s to t can be merged into 2 through the manager
-This is guaranteed to be feasible bc the shortest path is defined as having at least one manager
-every three nodes
-There cannot be x1 -- x2 -- x3 where x = non manager, bc then x1 could not reach x3 through the 
-way the Floyd-Warshall was defined 
-
-
-*/
